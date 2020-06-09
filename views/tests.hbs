@@ -1,0 +1,34 @@
+<div style="display: flex;">
+    <h1 style="margin-left: 50px;">Тесты</h1>
+    {{#if isAuth}}
+    <form action="/addTest">
+        <button class='btn' style="margin-left: 865px; width:60px; height:50px; margin-top: 60px;">+</button>
+    </form>
+    {{/if}}
+</div>
+<div class="her">
+
+    {{#if tests.length}}
+    {{#each tests}}
+    <div class="roww">
+        <div class="col s6 ">
+            <div class="card">
+                <div class="card-content">
+                    <a href="{{link}}" target="_blank">{{name}}</a>
+                </div>
+                <div class="card-action actions">
+                    {{!--  <a href="/tests/{{id}}" target="_blank">Открыть курс</a> --}}
+                    {{#if @root.isAuth}}
+                    <a href="/tests/{{id}}/edit?allow=true">Редактировать</a>
+                    {{/if}}
+                    <input type="hidden" name="id" value="{{id}}">
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <p>Kursov net</p>
+    {{/if}}
+
+</div>

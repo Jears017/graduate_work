@@ -1,0 +1,52 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo" style="margin-top: 15px;"><img src="/Resurs_3.png" alt=""></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      {{#if isHome}}
+      <li class="active"><a href="/">Главная</a></li>
+      {{else}}
+      <li><a href="/">Главная</a></li>
+      {{/if}}
+      {{#if isCourses}}
+      <li class="active"><a href="/courses">Лекции</a></li>
+      {{else}}
+      <li><a href="/courses">Лекции</a></li>
+      {{/if}}
+
+      {{#if isTest}}
+      <li class="active"><a href="/tests">Тесты</a></li>
+      {{else}}
+      <li><a href="/tests">Тесты</a></li>
+      {{/if}}
+
+
+
+
+      {{#if isAuth}}
+      {{!-- {{#if isAdd}}
+      <li class="active"><a href="/add">Добавить лекцию</a></li>
+      {{else}}
+      <li><a href="/add">Добавить лекцию</a></li>
+      {{/if}} --}}
+      {{!-- {{#if isAddTest}}
+      <li class="active"><a href="/addTest">Добавить тесты</a></li>
+      {{else}}
+      <li><a href="/addTest">Добавить тесты</a></li>
+      {{/if}} --}}
+      <li><a href="/auth/logout">Выйти<img src="/arrow_right_in.png" alt="" style="margin-left: 5px;"></a></li>
+      {{else}}
+      {{#if isLogin}}
+      <li class="active"><a href="/auth/login#login">Войти<img src="/arrow_in_left.png" alt="" style="margin-left: 5px;"></a></li>
+      {{else}}
+      <li><a href="/auth/login#login">Войти<img src="/arrow_in_left.png" alt="" style="margin-left: 5px;"></a></li>
+      {{/if}}
+      {{/if}}
+
+
+
+
+
+
+    </ul>
+  </div>
+</nav>
