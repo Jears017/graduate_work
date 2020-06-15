@@ -15,12 +15,13 @@ router.post('/', auth, async (req, res) => {
         title: req.body.title,
         price: req.body.price,
         img: req.body.img,
-        userId: req.user
+        userId: req.user,
+        link: req.body.link
     })
 
     try {
         await course.save()
-        res.redirect('/')
+        res.redirect('/courses')
     } catch (e) {
         console.log(e)
     }

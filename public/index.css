@@ -66,15 +66,20 @@ margin-bottom: 20px; */
 }
 
 .card{
-    width:250px;
-    height: 250px;
+    width:200px;
+    height: 200px;
+}
+
+.card .card-title {
+    font-size: 16px;
+    font-weight: 300;
 }
 
 .main_page{
     background-image: url('AAKh01LwD98.jpg');
     width: 1500px;
     height:770px;
-    margin-left: -285px;
+    margin-left: -351px;
     margin-top: 20px;
 }
 

@@ -12,7 +12,8 @@ const course = new Schema({
     userId: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    }, 
+    link: String
 })
 
 module.exports = model('Course', course)

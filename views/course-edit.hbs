@@ -24,6 +24,11 @@
             <label for="img">Textarea</label>
         </div>
     </div>
+      <div class="input-field">
+        <input id="link" name="link" type="text" class="validate" value="{{course.link}}" >
+        <label for="link">Ссылка на видео материал</label>
+        <span class="helper-text" data-error="Добавьте ссылку"></span>
+    </div>
 
     <input type="hidden" name="id" value="{{course.id}}">
     <input type="hidden" name="_csrf" value="{{csrf}}">

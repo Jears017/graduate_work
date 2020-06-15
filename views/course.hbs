@@ -1,7 +1,18 @@
 <div class="course">
     <h1>{{course.title}}</h1>
     <div class='course_text'>
-        <p>{{course.img}}</p>
-    </div>
-
+        <p align="justify">{{course.img}}</p>
 </div>
+     {{#if course.link}}
+    
+        <h4 style="margin: 0 auto; width: 1000px; padding-left:150px">Подробнее вы можете ознокомиться с информацией в видеоролике</h4>
+        <iframe style="padding-top: 50px; margin-bottom: 100px" width="560" height="315" src="{{course.link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    
+    {{/if}}
+    </div>
+    
+    {{!-- <video controls="controls" style="width: 500px; height: 500px">
+        <source src="{{course.link}}">
+    </video> --}}
+   
+
