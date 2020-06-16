@@ -1,5 +1,7 @@
 const { Router } = require('express')
 const bcrypt = require('bcryptjs')
+const { validationResult} = require('express-validator')
+const {loginValidators} = require('../utils/validators')
 const User = require('../models/user')
 const router = Router()
 
@@ -20,7 +22,7 @@ router.get('/logout', async (req, res) => {
 
 })
 
-router.post('/login', async (req, res) => {
+router.post('/login', loginValidators, async (req, res) => {
 
     try {
         const { email, password } = req.body
@@ -56,9 +58,15 @@ router.post('/login', async (req, res) => {
 
 router.post('/register', async (req, res) => {
     try {
-        const { email, password, repeat, name } = req.body
+        const { email, password, confirm, name } = req.body
 
         const candidate = await User.findOne({ email })
+
+        const errors = validationResult(req)
+        if(!errors.isEmpty()){
+            req.flash('registerError', errors.array()[0].msg)
+            return res.status(422).redirect('/auth/login#register')
+        }
 
         if (candidate) {
             req.flash('registerError', 'Пользователь с таким email уже существует')

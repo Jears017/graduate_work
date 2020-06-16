@@ -16,8 +16,9 @@ const authRoutes = require('./routes/auth')
 const testsRoutes = require('./routes/tests')
 const addTestRoutes = require('./routes/addTests')
 const varMiddleware = require('./middleware/variables')
+const errorHandler = require('./middleware/error')
+const keys = require('./keys')
 
-const MONGODB_URI = 'mongodb+srv://Aleksandr:xihW0lvXAPKVIZ2L@cluster0-odme5.mongodb.net/<dbname>?retryWrites=true&w=majority'
 
 const app = express()
 
@@ -31,7 +32,7 @@ const hbs = exphbs.create({
 
 const store = new MongoStore({
     collection: 'sessions',
-    uri: MONGODB_URI
+    uri: keys.MONGODB_URI
 
 })
 
@@ -43,7 +44,7 @@ app.set('views', 'views')
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(session({
-    secret: 'some secret value',
+    secret: keys.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store
@@ -60,11 +61,13 @@ app.use('/auth', authRoutes)
 app.use('/tests', testsRoutes)
 app.use('/addTest', addTestRoutes)
 
+app.use(errorHandler)
+
 
 async function start() {
     try {
         
-        await mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+        await mongoose.connect(keys.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
         const PORT = process.env.PORT || 3002
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`)
