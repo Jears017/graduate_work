@@ -1,34 +1,17 @@
-{{!-- <div style="display: flex;">
+<div style="display: flex; ">
     <h1 style="margin-left: 50px;">Тесты</h1>
     {{#if isAuth}}
-    <form action="/addTest">
-        <button class='btn' style="margin-left: 865px; width:60px; height:50px; margin-top: 60px;">+</button>
-    </form>
-    {{/if}}
-</div>
-<div style= class="her">
+    <div style="display: flex; padding-left:69%">
+        <form action="/addTest">
+            <button class='btn' style="width:60px; margin-top: 60px; height:50px; font-size:25px">+</button>
+        </form>
 
-    {{#if tests.length}}
-    {{#each tests}}
-    <div class="roww">
-    
+        <a href="https://docs.google.com/forms/u/0/" target="_blank" style="decoration: none"><button class='btn'
+                style="margin-left: 10px; width:60px; height:50px; margin-top: 60px;" target="_blank"><img
+                    style="width: 25px; height: 25px; margin-top: 9px; font-size:25px; font-weight:bold"
+                    src="/icons8-карандаш-64.png" alt=""></button></a>
+    </div>
 
-      
-
-    {{/each}}
-    {{else}}
-    <p>Kursov net</p>
-    {{/if}}
-
-</div> --}}
-
-<div style="display: flex;">
-    <h1 style="margin-left: 50px;">Тесты</h1>
-    {{#if isAuth}}
-    <form action="/addTest">
-        <button class='btn' style="margin-left: 725px; width:60px; height:50px; margin-top: 60px; font-size:25px">+</button>
-    </form>
-    {{!-- <button class='btn' style="margin-left: 10px; width:60px; height:50px; margin-top: 60px;"><img style="width: 25px; height: 25px; margin-top: 9px; font-size:25px; font-weight:bold" src="/icons8-карандаш-64.png" alt=""></button> --}}
     {{/if}}
 </div>
 <div class="her">
@@ -41,10 +24,10 @@
                 <div class="card-content">
                     <a href="{{link}}" target="_blank">{{name}}</a>
                 </div>
-                <div class="card-action actions">
+                <div class="card-action actions" style="padding: 40px 24px;">
                     {{!--  <a href="/tests/{{id}}" target="_blank">Открыть курс</a> --}}
                     {{#if @root.isAuth}}
-                    <a href="/tests/{{id}}/edit?allow=true">Редактировать</a>
+                    <a href="/tests/{{id}}/edit?allow=true" style="font-size: 13px; margin-top:15px ">Редактировать</a>
                     {{/if}}
                     <input type="hidden" name="id" value="{{id}}">
                 </div>

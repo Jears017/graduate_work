@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
 
 
     res.render('courses', {
-        title: 'Курсы',
+        title: 'Лекции',
         isCourses: true,
         courses
     })
@@ -52,7 +52,7 @@ router.get('/:id', async (req, res) => {
     const course = await Course.findById(req.params.id)
     res.render('course', {
         layout: 'empty',
-        title: `Курс ${course.title}`,
+        title: `${course.title}`,
         course
     })
 })

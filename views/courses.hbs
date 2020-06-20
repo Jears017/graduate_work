@@ -1,9 +1,14 @@
-<div style="display: flex;">
+<div style="display: flex; ">
     <h1 style="margin-left: 50px;">Лекции</h1>
     {{#if isAuth}}
-    <form action="/add">
-        <button class='btn' style="margin-left: 670px; width:60px; height:50px; margin-top: 60px;">+</button>
-    </form>
+    <div style="display: flex; padding-left:71%">
+        <form action="/add">
+            <button class='btn' style="width:60px; margin-top: 60px; height:50px; font-size:25px">+</button>
+        </form>
+
+        
+    </div>
+
     {{/if}}
 </div>
 <div style="" class="her">
@@ -17,9 +22,9 @@
                     <span class="card-title">{{title}}</span>
                 </div>
                 <div class="card-action actions">
-                    <a href="/courses/{{id}}" target="_blank">Открыть курс</a>
+                    <a href="/courses/{{id}}" target="_blank" style="font-size: 13px;">Открыть лекцию</a>
                     {{#if @root.isAuth}}
-                    <a href="/courses/{{id}}/edit?allow=true">Редактировать</a>
+                    <a href="/courses/{{id}}/edit?allow=true" style="font-size: 13px;">Редактировать</a>
                     <form action="/card/add" method="POST">
                         <input type="hidden" name="id" value="{{id}}">
                         <input type="hidden" name="_csrf" value="{{@root.csrf}}">
