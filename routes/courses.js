@@ -4,17 +4,35 @@ const auth = require('../middleware/auth')
 const router = Router()
 
 router.get('/', async (req, res) => {
-    const courses = await Course.find()
-        .populate('userId', 'email name')
-        .select('price title img')
+    //eval(require('locus'))
+    if (req.query.search) {
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi')
+        const courses = await Course.find({title:regex})
+            .populate('userId', 'email name')
+            .select('price title img')
 
 
 
-    res.render('courses', {
-        title: 'Лекции',
-        isCourses: true,
-        courses
-    })
+        res.render('courses', {
+            title: 'Лекции',
+            isCourses: true,
+            courses
+        })
+    } else {
+
+
+        const courses = await Course.find()
+            .populate('userId', 'email name')
+            .select('price title img')
+
+
+
+        res.render('courses', {
+            title: 'Лекции',
+            isCourses: true,
+            courses
+        })
+    }
 })
 
 router.get('/:id/edit', auth, async (req, res) => {
@@ -56,5 +74,9 @@ router.get('/:id', async (req, res) => {
         course
     })
 })
+
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
 
 module.exports = router

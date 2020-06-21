@@ -1,4 +1,31 @@
 <div style="display: flex; ">
+    <h1 style="margin-left: 70px;">Тесты</h1>
+
+    <div style="display: flex; {{!-- padding-left:41.3% --}} padding-left:485px">
+        {{!--  <form action="/add">
+            <button class='btn' style="width:60px; margin-top: 60px; height:50px; font-size:25px">+</button>
+        </form>
+ --}}
+        <form action="/courses" method="GET" style=" padding-top:60px">
+            <div>
+                <input type="text" name="search" placeholder="Поиск тестов" style="width: 210px;">
+                <input type="submit" value="Найти" class="btn" style="width: ;">
+            </div>
+        </form>
+
+    </div>
+
+
+</div>
+{{#if isAuth}}
+<form action="/add">
+    {{!-- <button class='btn' style="width:60px; margin-left:70px; height:50px; font-size:25px; margin-bottom:20px">+</button> --}}
+    <button class="btn" style="margin-left: 70px; margin-bottom:20px">+ Добавить тест</button>
+</form>
+{{/if}}
+
+
+{{!-- <div style="display: flex; ">
     <h1 style="margin-left: 50px;">Тесты</h1>
     {{#if isAuth}}
     <div style="display: flex; padding-left:69%">
@@ -13,7 +40,7 @@
     </div>
 
     {{/if}}
-</div>
+</div> --}}
 <div class="her">
 
     {{#if tests.length}}

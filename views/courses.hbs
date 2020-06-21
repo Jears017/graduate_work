@@ -1,16 +1,40 @@
+{{!--   <form action="/courses" method="GET" style=" padding-left:74%; padding-top:20px">
+        <div>
+            <input type="text" name="search" placeholder="courses search" style="width: 210px;">
+            <input type="submit" value="Search" class="btn" style="width: ;">
+        </div>
+    </form> --}}
+
 <div style="display: flex; ">
-    <h1 style="margin-left: 50px;">Лекции</h1>
-    {{#if isAuth}}
-    <div style="display: flex; padding-left:71%">
-        <form action="/add">
+    <h1 style="margin-left: 70px;">Лекции</h1>
+
+    <div style="display: flex; {{!-- padding-left:41.3% --}} padding-left:485px">
+        {{!--  <form action="/add">
             <button class='btn' style="width:60px; margin-top: 60px; height:50px; font-size:25px">+</button>
         </form>
+ --}}
+        <form action="/courses" method="GET" style=" padding-top:60px">
+            <div>
+                <input type="text" name="search" placeholder="Поиск лекций" style="width: 210px;">
+                <input type="submit" value="Найти" class="btn" style="width: ;">
+            </div>
+        </form>
 
-        
     </div>
 
-    {{/if}}
+
 </div>
+{{#if isAuth}}
+<form action="/add">
+    {{!-- <button class='btn' style="width:60px; margin-left:70px; height:50px; font-size:25px; margin-bottom:20px">+</button> --}}
+    <button class="btn" style="margin-left: 70px; margin-bottom:20px">+ Добавить лекцию</button>
+</form>
+{{/if}}
+
+
+
+
+
 <div style="" class="her">
 
     {{#if courses.length}}
@@ -36,7 +60,7 @@
     </div>
     {{/each}}
     {{else}}
-    <p>Kursov net</p>
+    <p style="margin-left: 70px; margin-bottom: 200px; margin-top:50px; font-size:25px">Ooops... Такой лекции нет...</p>
     {{/if}}
 
 </div>
