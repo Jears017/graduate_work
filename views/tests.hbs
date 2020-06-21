@@ -6,7 +6,7 @@
             <button class='btn' style="width:60px; margin-top: 60px; height:50px; font-size:25px">+</button>
         </form>
  --}}
-        <form action="/courses" method="GET" style=" padding-top:60px">
+        <form action="/tests" method="GET" style=" padding-top:60px">
             <div>
                 <input type="text" name="search" placeholder="Поиск тестов" style="width: 210px;">
                 <input type="submit" value="Найти" class="btn" style="width: ;">
@@ -18,10 +18,16 @@
 
 </div>
 {{#if isAuth}}
-<form action="/add">
-    {{!-- <button class='btn' style="width:60px; margin-left:70px; height:50px; font-size:25px; margin-bottom:20px">+</button> --}}
-    <button class="btn" style="margin-left: 70px; margin-bottom:20px">+ Добавить тест</button>
-</form>
+<div style="display: flex;">
+    <form action="/addTest" style="margin-bottom: 5px;" >
+        {{!-- <button class='btn' style="width:60px; margin-left:70px; height:50px; font-size:25px; margin-bottom:20px">+</button> --}}
+        <button class="btn" style="margin-left: 70px; margin-bottom:20px"><span style="font-weight: bold; font-size:16px">+</span> Добавить тест</button>
+
+
+    </form>
+    <a href="https://docs.google.com/forms/u/0/" target="_blank" style="text-decoration: none; color:#26a69a !important; outline: none;"><button class="btn"
+            style="margin-left: 30px; margin-bottom:20px"><span style="font-weight: bold; font-size:16px">+</span> Создать тест</button></a>
+</div>
 {{/if}}
 
 
